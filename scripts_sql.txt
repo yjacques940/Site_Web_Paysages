@@ -1,0 +1,32 @@
+//-> Obtenir toutes les images
+
+select * from tbl_pictures
+
+//-> Obtenir la ville d'une image
+
+select * from tbl_pictures inner join tbl_country on tbl_pictures.id_country = tbl_country.id_country
+
+//-> Obtenir la categorie d'une image
+
+select * from tbl_pictures inner join tbl_category on tbl_pictures.id_category = tbl_category.id_category
+
+//-> Obtenir les likes d'une picture (quantité de like) ||A REVERIFIER
+
+select id_picture_like.Count from tbl_picture_like where id_picture = $id_picture
+
+//-> Vérifier si un user existe déjà dans la bd lors de l'inscription
+
+select * from tbl_user where username  = $user_name
+return bool;
+
+//-> Vérifier la connexion 
+
+select * from tbl_user where username = $user_name and password = $password and Active
+
+//-> Obtenir si un user a like la picture courante
+if()
+select * from tbl_picture_like where id_user = $current_user_id and id_picture = $current_picture_id
+-- then star = true;
+
+
+
