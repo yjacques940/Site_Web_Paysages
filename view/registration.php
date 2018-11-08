@@ -48,6 +48,10 @@ session_start();
                   <label for="password">Mot de passe : </label>
                   <input  id="password" name="password"  type="text" placeholder="Entrez un mot de passe"/>
               </div>   
+              <div class="pure-control-group"> 
+                  <label for="confirm_password">Confirmer le mot de passe : </label>
+                  <input  id="confirm_password" name="confirm_password"  type="text" placeholder="Confirmez le mot de passe"/>
+              </div>   
               
               <div class="pure-controls">
                 <input type="submit" name="Submit" value="S'inscrire" class="pure-button pure-button-primary" > 
