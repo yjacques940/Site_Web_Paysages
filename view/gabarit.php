@@ -1,4 +1,5 @@
-<!doctype html>
+<?php session_start(); ?>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -23,11 +24,8 @@
 
 
 </head>
-
 <header>
-    <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-4-5">
-       
-    </div>
+    <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-4-5"></div>
 </header>
 <body>
 
@@ -60,7 +58,7 @@
 	</div>
 </div>
 
-<script <?php echo $lien_ajax ?>></script>
-<script <?php echo $gestion_ajax ?> ></script>	
 </body>
 </html>
+
+

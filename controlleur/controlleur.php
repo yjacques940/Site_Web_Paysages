@@ -1,10 +1,14 @@
 <?php
-	function Test(){		
-        require 'view/vue_test.php';
+    //require('model/ManagerCoursProfesseurs.php');
+	require ('model/Manager.php');
+	function PageAccueilTest()
+    {		
+        require ('view/vue_test.php');
 	}
-
-	function MainPage(){
-		require 'view/accueil.php';
+	
+	function pageDeConnexion()
+    {
+		require ('view/vue_connexion.php');
 	}
 
 	function MostPopularPicturesPage(){
