@@ -1,13 +1,18 @@
 
 
 <?php
-    require('model/ManagerCoursProfesseurs.php');
 	/*require 'Modele.php';*/
 	function Test(){		
-        require 'view/vue_test.php';
+        header('Location: view/vue_test.php');
 	}
 	
 	function pageDeConnexion(){
 		require 'view/vue_connexion.php';
 	}
+
+    function checkIfUserIsValid($username, $password){
+        if($username == "Bob" && $password == "111"){
+            
+        }
+    }
 ?>   
