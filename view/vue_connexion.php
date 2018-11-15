@@ -7,10 +7,18 @@
 <script type="text/javascript" src="./jquery-validation-1.15.0/dist/localization/messages_fr.js"></script>
 </head>
 <body>
-    <form id="formulaire_connexion" class="pure-form pure-form-stacked" action="index.php?action=connexion" type="actionForm" method="POST">
+    <form id="formulaire_connexion" class="pure-form pure-form-aligned" action="index.php?action=connexion" type="actionForm" method="POST">
         <fieldset>
-            <input name="username" id="username" type="text" placeholder="Nom d'utilisateur">
-            <input for="password" name="password" id="password" type="password" placeholder="Mot de passe">
+            <div class="pure-control-group">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input name="username" id="username" type="text" placeholder="Nom d'utilisateur">
+            </div>
+            <div class="pure-control-group">
+                    <label for="password">Mot de passe</label>
+                    <input for="password" name="password" id="password" type="password" placeholder="Mot de passe">
+            </div>
+
+
         </fieldset>
         <button type="submit" class="pure-button pure-button-primary">Se connecter</button>
     </form>
@@ -33,7 +41,7 @@
             username: {
                 required: "Veuillez entrer votre nom d'usager",
             },
-            note: {
+            password: {
                 required: 'Veuillez entrez votre mot de passe',
             },
         }
