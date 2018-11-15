@@ -1,7 +1,5 @@
 <?php
-	/*require 'Modele.php';*/
 	function Test(){		
-        //header('Location: view/vue_test.php');
         require 'view/vue_test.php';
 	}
 	
