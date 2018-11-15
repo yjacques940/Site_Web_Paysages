@@ -1,4 +1,8 @@
-<?php ob_start();?>
+<?php
+    ob_start();
+    session_unset();
+    session_destroy();
+?>
 
 
 <script type="text/JavaScript" src="/jquery-3.3.1.min.js"></script>
@@ -12,9 +16,7 @@
         </fieldset>
         <button type="submit" class="pure-button pure-button-primary">Se connecter</button>
     </form>
-</body>
-
-<script>
+    <script>
     $('#formulaire_connexion').validate({
         errorClass: "mon_erreur_classe",
         errorElement: "em",
@@ -22,8 +24,8 @@
             this.element(test);
         },
         rules: {
-            "username": {
-                "required": true,
+            username: {
+                required: true,
             },
             password: {
                 required: true,
@@ -47,5 +49,8 @@
     }
 
 </style>
+</body>
+
+
 
 <?php require('gabarit.php');?>

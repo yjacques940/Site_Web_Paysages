@@ -1,9 +1,8 @@
-
-
 <?php
 	/*require 'Modele.php';*/
 	function Test(){		
-        header('Location: view/vue_test.php');
+        //header('Location: view/vue_test.php');
+        require 'view/vue_test.php';
 	}
 	
 	function pageDeConnexion(){
@@ -11,8 +10,6 @@
 	}
 
     function checkIfUserIsValid($username, $password){
-        if($username == "Bob" && $password == "111"){
-            
-        }
+        return ($username == "Bob" && $password == "111");   
     }
 ?>   
