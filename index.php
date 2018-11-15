@@ -9,13 +9,15 @@ require 'controlleur/controlleur.php';
                     $_SESSION['username'] = $_POST['username'];
                      Test();	
                 }else{
-                    pageDeConnexion();
+				MainPage();
+                  //  pageDeConnexion();
                 };
 
 	       }
         }
     }
 	else {
-		pageDeConnexion();
+		//pageDeConnexion();
+		MainPage();
 	}
  ?>
