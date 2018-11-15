@@ -1,17 +1,15 @@
 <?php
     ob_start();
-    session_unset();
-    session_destroy();
 ?>
-
-
-<script type="text/JavaScript" src="/jquery-3.3.1.min.js"></script>
-
-
+<head>
+    <script type="text/javascript" src="./jquery-validation-1.15.0/lib/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="./jquery-validation-1.15.0/dist/jquery.validate.min.js"></script>
+<script type="text/javascript" src="./jquery-validation-1.15.0/dist/localization/messages_fr.js"></script>
+</head>
 <body>
     <form id="formulaire_connexion" class="pure-form pure-form-stacked" action="index.php?action=connexion" type="actionForm" method="POST">
         <fieldset>
-            <input for="username" name="username" id="username" type="text" placeholder="Nom d'utilisateur">
+            <input name="username" id="username" type="text" placeholder="Nom d'utilisateur">
             <input for="password" name="password" id="password" type="password" placeholder="Mot de passe">
         </fieldset>
         <button type="submit" class="pure-button pure-button-primary">Se connecter</button>
