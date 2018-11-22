@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'view/gabarit.php';
 ob_start();
 ?>
 <!doctype html>
