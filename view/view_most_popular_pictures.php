@@ -1,55 +1,19 @@
+
+<?php 
+$title = "Les plus populaires";
+$SubTitle = "Voici les 10 plus populaires";
+ob_start();
+?>
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A layout example that shows off a responsive photo gallery.">
-    <title>Photos de paysages</title>
-    
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
-    
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
-    <!--<![endif]-->
-    
-    
-        <!--[if lte IE 8]>
-            <link rel="stylesheet" href="css/layouts/gallery-old-ie.css">
-        <![endif]-->
-        <!--[if gt IE 8]><!-->
-            <link rel="stylesheet" href="css/layouts/gallery.css">
-        <!--<![endif]-->
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title><?php $title ?></title>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
 <body>
 <div>
-    <div class="header">
-        <div class="pure-menu pure-menu-horizontal">
-            <a class="pure-menu-heading" href="">Les plus populaires</a>
-
-            <ul class="pure-menu-list">
-                <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Se connecter</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">S'inscrire</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Toutes les images</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Ajouter une image</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="pure-u-1 form-box">
-        <div class="text-box pure-u-1 pure-u-md pure-u-lg">
-            <div class="l-box">
-                <div class="photo-box pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
-                    <h1 class="text-box-head">Accueil</h1>
-                    <p class="text-box-subhead">Voici les 10 images les plus populaires</p>
-                </div>
-            </div>
-        </div>
-
         <!-- photo -->
-
         <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
             <a href="http://www.nilssonlee.se/">
                 <img src="http://24.media.tumblr.com/23e3f4bb271b8bdc415275fb7061f204/tumblr_mve3rvxwaP1st5lhmo1_1280.jpg"
@@ -180,7 +144,7 @@
                 </span>
             </aside>
         </div>
-    </div>
+   
 
         <!--<div class="pure-u-1 form-box">
             <div class="l-box">
@@ -206,14 +170,8 @@
                 </p>
             </div>
         </div>-->
-
-        <div class="footer">
-            Copyright © 2018
-        </div>
 </div>
-
-
-
-
 </body>
 </html>
+<?php $contenu = ob_get_clean(); ?>
+<?php require("gabarit.php"); ?>
