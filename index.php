@@ -20,11 +20,4 @@ require 'controlleur/controlleur.php';
 		//pageDeConnexion();
 		MainPage();
 	}
-}
-
-catch (PDOException $e) 
-{
-  $msgErreur = $e->getMessage();
-  require 'view/vueErreur.php';
-} 
 ?>

@@ -36,17 +36,17 @@ ob_start();
               <legend><h3>Inscription</h3></legend>
                <div class="pure-control-group">
                   <label for="firstname">Prénom : </label>
-                  <input  id="firstname" name="firstname"  type="text" placeholder="Votre prénom"/>
+                  <input  id="firstname" name="firstname"  type="text" />
                </div> 
                
               <div class="pure-control-group">
                   <label for="lastname">Nom : </label>
-                  <input  id="lastname" name="lastname"  type="text" placeholder="Votre nom"/>
+                  <input  id="lastname" name="lastname"  type="text" />
               </div>   
               
               <div class="pure-control-group">
                   <label for="user_name">Nom d'utilisateur : </label>
-                  <input  id="user_name" name="username"  type="text" placeholder="Entrez un nom d'utilisateur"/>
+                  <input  id="user_name" name="username"  type="text" />
               </div>   
               
               <div class="pure-control-group"> 
