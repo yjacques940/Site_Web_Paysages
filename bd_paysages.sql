@@ -48,7 +48,7 @@ CREATE TABLE tbl_country(
 
 CREATE TABLE tbl_pictures(
         id_picture      Int  Auto_increment  NOT NULL ,
-        picture         Longblob NOT NULL ,
+        picture         Varchar(50) NOT NULL ,
         dateTimePicture Datetime NOT NULL ,
         id_category     Int NOT NULL ,
         id_country      Varchar (50) NOT NULL ,
