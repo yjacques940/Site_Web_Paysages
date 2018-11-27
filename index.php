@@ -48,5 +48,4 @@ require 'controlleur/controlleur.php';
 	{
 	 MainPage();
 	}
-
- ?>
+?>
