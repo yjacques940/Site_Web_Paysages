@@ -12,6 +12,19 @@ require 'controlleur/controlleur.php';
 	{
 		 ConnexionPage();
 	}
+	if($_GET['action'] == "Registration")
+	{
+		 RegistrationPage();
+	}
+	if($_GET['action'] == "AllImages")
+	{
+		 AllPicturesPage();
+	}
+	if($_GET['action'] == "AddImage")
+	{
+		 AddImagePage();
+	}
+
         if($_GET['action'] == "connexion")
 		{
             if (isset($_POST['username']) && isset($_POST['password']))

@@ -37,9 +37,9 @@
 
             <ul class="pure-menu-list">
                 <li class="pure-menu-item pure-menu-selected"><a href="index.php?action=ConnexionPage" class="pure-menu-link">Se connecter</a></li>
-                <li class="pure-menu-item"><a href="view_registration.php" class="pure-menu-link">S'inscrire</a></li>
-                <li class="pure-menu-item"><a href="view_gallery.php" class="pure-menu-link">Toutes les images</a></li>
-                <li class="pure-menu-item"><a href="view_add_image.php" class="pure-menu-link">Ajouter une image</a></li>
+                <li class="pure-menu-item"><a href="index.php?action=Registration" class="pure-menu-link">S'inscrire</a></li>
+                <li class="pure-menu-item"><a href="index.php?action=AllImages" class="pure-menu-link">Toutes les images</a></li>
+                <li class="pure-menu-item"><a href="index.php?action=AddImage" class="pure-menu-link">Ajouter une image</a></li>
             </ul>
         </div>
 
