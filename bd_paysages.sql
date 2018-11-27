@@ -13,7 +13,7 @@ CREATE TABLE tbl_user(
         firstName    Varchar (50) NOT NULL ,
         lastName     Varchar (50) NOT NULL ,
         dateTimeUser Datetime NOT NULL default current_timestamp,
-        userName     Varchar (50) NOT NULL ,
+        userName     Varchar (50) NOT NULL UNIQUE,
         password     Varchar (50) NOT NULL ,
         Active       Bool NOT NULL default true
 	,CONSTRAINT tbl_user_PK PRIMARY KEY (id_user)
@@ -84,6 +84,8 @@ BEGIN
     VALUES($firstname,$lastname, $username, $password);
 END
 | 
+
+
 
 call RegisterUser("bob", "roy", "user1", "555");
 select * from tbl_user
