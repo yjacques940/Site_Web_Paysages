@@ -4,7 +4,7 @@
 	}
 
 	function MainPage(){
-		//require 'view/view_main_page.php';
+		require 'view/view_main_page.php';
 	}
 
 	function MostPopularPicturesPage(){
@@ -29,5 +29,12 @@
 
     function checkIfUserIsValid($username, $password){
         return ($username == "Bob" && $password == "111");   
+    }
+
+    function RegisterUser($firstname,$lastname,$username,$password){
+        require 'model/Manager.php';
+        $manager = new Manager();
+        $manager->RegisterUser($firstname,$lastname,$username,$password);
+
     }
 ?>   

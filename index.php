@@ -42,10 +42,16 @@ require 'controlleur/controlleur.php';
 			}
 	    }
 
-		
+    if($_GET['action'] == "RegisterUser")
+	{
+		 RegisterUser($_POST['firstname'],$_POST['lastname'],$_POST['username'], $_POST['password']);
+        Mainpage();
+	}
     }
+
 	else
 	{
 	 MainPage();
 	}
-?>
+
+ ?>

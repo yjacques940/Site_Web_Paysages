@@ -12,7 +12,7 @@ ob_start();
 
 </head>
 <body>
-    <form id="formulaire_connexion" class="pure-form pure-form-aligned" action="index.php?action=connexion" type="actionForm" method="POST">
+    <form id="formulaire_connexion" class="pure-form pure-form-aligned" action="index.php?action=RegisterUser" type="actionForm" method="POST">
         <fieldset>
             <div class="pure-control-group">
                     <label for="firstname">Prénom</label>
@@ -20,7 +20,7 @@ ob_start();
             </div>
             <div class="pure-control-group">
             <label for="lastname">Nom de famille</label>
-                    <input for="lastname" name="lastname" id="lastname" type="text" placeholder="Nom de famille">
+            <input for="lastname" name="lastname" id="lastname" type="text" placeholder="Nom de famille">
             </div>
             <div class="pure-control-group">
                     <label for="username">Nom d'utilisateur</label>
