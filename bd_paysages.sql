@@ -2,7 +2,6 @@
 #        Script MySQL.
 #------------------------------------------------------------
 
-
 #------------------------------------------------------------
 # Table: tbl_user
 #------------------------------------------------------------
@@ -13,10 +12,10 @@ CREATE TABLE tbl_user(
         id_user      Int  Auto_increment  NOT NULL ,
         firstName    Varchar (50) NOT NULL ,
         lastName     Varchar (50) NOT NULL ,
-        dateTimeUser Datetime NOT NULL ,
+        dateTimeUser Datetime NOT NULL default current_timestamp,
         userName     Varchar (50) NOT NULL ,
         password     Varchar (50) NOT NULL ,
-        Active       Bool NOT NULL
+        Active       Bool NOT NULL default true
 	,CONSTRAINT tbl_user_PK PRIMARY KEY (id_user)
 )ENGINE=InnoDB;
 
@@ -77,3 +76,14 @@ CREATE TABLE tbl_picture_like(
 	,CONSTRAINT tbl_picture_like_tbl_user0_FK FOREIGN KEY (id_user) REFERENCES tbl_user(id_user)
 )ENGINE=InnoDB;
 
+        
+delimiter | 
+create procedure RegisterUser(IN $firstname Varchar(50), IN $lastname Varchar(50), IN $username Varchar(50), IN $password Varchar(50))
+BEGIN
+	INSERT INTO tbl_user(firstName, lastName, userName, password)
+    VALUES($firstname,$lastname, $username, $password);
+END
+| 
+
+call RegisterUser("bob", "roy", "user1", "555");
+select * from tbl_user
