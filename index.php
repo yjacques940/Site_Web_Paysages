@@ -24,6 +24,10 @@ require 'controlleur/controlleur.php';
 	{
 		 AddImagePage();
 	}
+	if($_GET['action'] == "AddImageInDatabase")
+	{
+		 AddImageInDatabase();
+	}
 
         if($_GET['action'] == "connexion")
 		{

@@ -37,4 +37,9 @@
         $manager->RegisterUser($firstname,$lastname,$username,$password);
 
     }
+
+	function AddImageInDatabase()
+	{
+		require 'controlleur/AddImageInDatabase.php';
+	}
 ?>   

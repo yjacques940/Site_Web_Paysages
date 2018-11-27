@@ -13,7 +13,23 @@ ob_start();
 </head>
 
 	<body>
-		<p> This is a Paragraph </p>
+		 <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-4-5 form-box"> <!-- pour centrer -->   
+        <form class="pure-form pure-form-aligned" id="mon_formulaire" method="Post" action="index.php?action=AddImageInDatabase" enctype="multipart/form-data">
+          <fieldset>
+              <div class="pure-control-group">
+              <h1 for="fichier_source">Choisissez une image</h1> 
+                  <form action="upload.php" method="post" enctype="multipart/form-data">
+                      <p>
+					  <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+                          <input type="file" name="fichier_source" />
+                          <input type="submit" value="Envoyer" />
+                      </p>
+                  </form>
+              </div>
+
+           </fieldset>
+        </form>  
+    </div>
 	</body>
 
 </html>
