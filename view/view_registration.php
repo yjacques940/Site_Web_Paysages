@@ -31,7 +31,7 @@ ob_start();
                     <input name="password" id="password" type="password" placeholder="Password">
             </div>
             <div class="pure-control-group">
-                    <label for="password_confirm">Mot de passe</label>
+                    <label for="password_confirm">Confirmer le mot de passe</label>
                     <input name="password_confirm" id="password_confirm" type="password" placeholder="Password">
             </div>
         </fieldset>
