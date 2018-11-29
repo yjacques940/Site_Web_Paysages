@@ -27,5 +27,19 @@ class Manager extends Connexion
 		$add->execute();
 	}
 
+	public function GetAllCategories()
+	{
+		$sql = 'select * from tbl_category'
+		$data = self::getConnexion()->prepare($sql);
+		$data->execute();
+	}
+
+	public function GetAllCountries()
+	{
+		$sql = 'select * from tbl_country'
+		$data = self::getConnexion()->prepare($sql);
+		$data->execute();
+	}
+
 }
 ?>
