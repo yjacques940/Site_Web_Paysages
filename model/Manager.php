@@ -11,7 +11,20 @@ class Manager extends Connexion
         $inscription->bindParam(':username',$username,PDO::PARAM_STR);
         $inscription->bindParam(':password',$password,PDO::PARAM_STR);
         $inscription->execute();
-   
+	}
+
+	public function AddNewPicture($pathname)
+	{
+		$guid = com_create_guid();
+		$id_category = 1;
+		$id_country = 1;
+		$id_user = 1;
+		$conn = new Connexion();
+		$sql = 'insert into tbl_pictures(id_picture,picture,dateTimePicture,id_category,id_country,id_user) 
+				values('$guid','$pathname','date("Y-m-d H:i:s")','$id_category','$id_country','$id_user');'
+
+		$add = self::getConnexion()->prepare($sql);
+		$add->execute();
 	}
 
 }

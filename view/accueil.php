@@ -14,9 +14,9 @@ ob_start();
 	<body>
 	<div>
 	<H1>Bienvenue sur notre site Web!</h1>
-		<p>Vous voulez ajouter des photos sur notre site? 
-		Inscrivez-vous et rendez vous dans la section "Ajouter une photo"!
-		Montrez au monde entier que votre photo est la plus belle! Bonne visite!</p>
+		<h4>Vous voulez ajouter des photos sur notre site? </br>
+		Inscrivez-vous et rendez vous dans la section "Ajouter une photo".</br>
+		Montrez au monde entier que votre photo est la plus belle.</br> Bonne visite!</h4>
 	</div>
 	</body>
 	
