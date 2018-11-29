@@ -89,3 +89,27 @@ END
 
 call RegisterUser("bob", "roy", "user1", "555");
 select * from tbl_user
+
+
+insert into tbl_category(id_category,category)
+values(1,"Montagnes");
+insert into tbl_category(id_category,category)
+values(2,"Soleil");
+insert into tbl_category(id_category,category)
+values(3,"Plan d'eau");
+insert into tbl_category(id_category,category)
+values(4,"hiver");
+select * from tbl_category
+
+
+insert into tbl_country(id_country  ,countryName )
+values(1,"Montréal");
+insert into tbl_country(id_country  ,countryName )
+values(2,"Québec");
+insert into tbl_country(id_country  ,countryName )
+values(3,"Australie");
+insert into tbl_country(id_country  ,countryName )
+values(4,"Saint-Alfred");
+insert into tbl_country(id_country  ,countryName )
+values(5,"Saint-Glinglin-des-Iles-Moutmouths");
+select * from tbl_country;
