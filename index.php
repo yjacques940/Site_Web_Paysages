@@ -28,6 +28,10 @@ require 'controlleur/controlleur.php';
 	{
 		 AddImageInDatabase();
 	}
+	if($_GET['action'] == "Accueil")
+	{
+		MainPage();
+	}
 
         if($_GET['action'] == "connexion")
 		{

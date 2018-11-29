@@ -33,6 +33,7 @@
 
  <div>
         <div class="pure-menu pure-menu-horizontal">
+			<a class="pure-menu-heading" href="index.php?action=Accueil">Accueil</a>
             <a class="pure-menu-heading" href="index.php?action=MostPopularPicturesPage">Les plus populaires</a>
 
             <ul class="pure-menu-list">

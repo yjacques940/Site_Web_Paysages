@@ -4,7 +4,7 @@
 	}
 
 	function MainPage(){
-		require 'view/view_main_page.php';
+		require 'view/accueil.php';
 	}
 
 	function MostPopularPicturesPage(){

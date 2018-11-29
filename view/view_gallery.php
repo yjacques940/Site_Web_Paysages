@@ -10,6 +10,7 @@ ob_start();
 	<meta charset="UTF-8">
     <title><?php $title ?></title>
     <link rel="stylesheet" href="/css/main.css">
+	 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 	<body>
@@ -23,14 +24,21 @@ ob_start();
 				$count++;
 				?>
 		<div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-            <a href="http://www.nilssonlee.se/">
 			<?php
 				  echo '<img src="' .$image . '"/>';
 			?>
             </a>
             <aside class="photo-box-caption">
                 <span>
-                    by <a href="http://www.nilssonlee.se/"><?php echo $count ?></a>
+				<button id="add-to-favorites"
+   class="mdc-icon-button"
+   aria-label="Add to favorites"
+   aria-hidden="true"
+   aria-pressed="false">
+   <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+   <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+</button>
+                    by <?php echo $count ?>
                 </span>
             </aside>
         </div>
