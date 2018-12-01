@@ -1,5 +1,5 @@
-<?php
 
+<?php
 class Connexion
 {
 	// protected car on en veut pas qu'il soit accessible directement, seulement par ses filles en héritage
@@ -11,7 +11,4 @@ class Connexion
         return $db;
     }
 }
-
-
-
 ?>

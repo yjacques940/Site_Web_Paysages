@@ -7,7 +7,7 @@ ob_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
     <title><?php $title ?></title>
     <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -19,14 +19,18 @@ ob_start();
              <div>
 			<h3>Ville de provenance :
 			<select name="country">
-			<option value="">Mont-réal</option>
+			<?php while($data = $countryList->fetch()) {?>
+			<option value="<?php $data['id_country']?>"> <?php echo $data['countryName'] ?> </option>
+			<?php };?>
 			</select>
 			</h3>
 			</div>
 			<div>
 			<h3>Catégorie :
 			<select name="category">
-			<option value="">Saint-Jessy</option>
+			<?php while($data = $categoryList->fetch()) {?>
+			<option value="<?php $data['id_category']?>"> <?php echo $data['category'] ?></option>
+			<?php };?>
 			</select>
 			</h3>
 			</div>

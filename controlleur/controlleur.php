@@ -9,9 +9,14 @@
 
 	function MostPopularPicturesPage(){
 		require 'view/view_most_popular_pictures.php';
+		require("javascript/zoom.js");
 	}
 
 	function AddImagePage(){
+		require 'model/Manager.php';
+		$manager = new Manager();
+		$countryList = $manager->GetAllCountries();
+		$categoryList = $manager->GetAllCategories();
 		require 'view/view_add_image.php';
 	}
 
@@ -35,11 +40,15 @@
         require 'model/Manager.php';
         $manager = new Manager();
         $manager->RegisterUser($firstname,$lastname,$username,$password);
-
     }
 
 	function AddImageInDatabase()
 	{
-		require 'controlleur/AddImageInDatabase.php';
+		require 'view/addData.php';
+		require 'model/Manager.php';
+		$addData = new addData();
+		$path = $addData->CheckImage();
+		$manager = new Manager();
+		$manager->SavePathInDataBase($path);
 	}
 ?>   

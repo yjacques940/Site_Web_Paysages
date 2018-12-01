@@ -13,33 +13,35 @@ class Manager extends Connexion
         $inscription->execute();
 	}
 
-	public function AddNewPicture($pathname)
-	{
-		$guid = com_create_guid();
-		$id_category = 1;
-		$id_country = 1;
-		$id_user = 1;
-		$conn = new Connexion();
-		$sql = 'insert into tbl_pictures(id_picture,picture,dateTimePicture,id_category,id_country,id_user) 
-				values('$guid','$pathname','date("Y-m-d H:i:s")','$id_category','$id_country','$id_user');'
-
-		$add = self::getConnexion()->prepare($sql);
-		$add->execute();
-	}
-
 	public function GetAllCategories()
 	{
-		$sql = 'select * from tbl_category'
-		$data = self::getConnexion()->prepare($sql);
-		$data->execute();
+		$sql = 'select * from tbl_category order by category desc';
+		$categoryList = self::getConnexion()->query($sql);
+		return $categoryList;
 	}
 
 	public function GetAllCountries()
 	{
-		$sql = 'select * from tbl_country'
-		$data = self::getConnexion()->prepare($sql);
-		$data->execute();
+		$sql = 'select * from tbl_country order by countryName desc';
+		$countryList = self::getConnexion()->query($sql);
+		return $countryList;
 	}
 
+	function SavePathInDataBase($path)
+	{
+			$id_category = 1;
+			$id_country = '1';
+			$id_user = 1;
+        $dateTime = date('Y-m-d H-i-s');
+		$sql = 'call RegisterPicture(:path,:dateTimePicture,:id_category,:id_country,:id_user)';
+		$registerImage = self::getConnexion()->prepare($sql);
+        $registerImage->bindParam(':path',$path,PDO::PARAM_STR);
+		$registerImage->bindParam(':dateTimePicture',$dateTime,PDO::PARAM_STR);
+		$registerImage->bindParam(':id_category',$id_category,PDO::PARAM_INT);
+		$registerImage->bindParam(':id_country',$id_country,PDO::PARAM_STR);
+		$registerImage->bindParam(':id_user',$id_user,PDO::PARAM_INT);
+		$registerImage->execute();
+	}
 }
+
 ?>

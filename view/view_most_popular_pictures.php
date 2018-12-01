@@ -2,6 +2,7 @@
 <?php 
 $title = "Les plus populaires";
 $SubTitle = "Voici les 10 plus populaires";
+
 ob_start();
 ?>
 <!doctype html>
@@ -15,7 +16,7 @@ ob_start();
 <div>
         <!-- photo -->
         <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-            <a href="http://www.nilssonlee.se/">
+            <a href="#" target="_blank" onClick=")">
                 <img src="http://24.media.tumblr.com/23e3f4bb271b8bdc415275fb7061f204/tumblr_mve3rvxwaP1st5lhmo1_1280.jpg"
                      alt="City">
             </a>
