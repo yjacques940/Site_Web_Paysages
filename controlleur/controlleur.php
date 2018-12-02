@@ -25,7 +25,12 @@
 	}
 
 	function AllPicturesPage(){
-		require 'view/view_gallery.php';
+		
+        require 'model/Manager.php';
+        $manager= new Manager();
+        //$IsLiked = $manager->GetIsLiked();
+        $Images = $manager->GetAllPictures();
+        require 'view/view_gallery.php';
 	}
 
 	function RegistrationPage(){

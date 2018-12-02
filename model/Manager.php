@@ -42,6 +42,40 @@ class Manager extends Connexion
 		$registerImage->bindParam(':id_user',$id_user,PDO::PARAM_INT);
 		$registerImage->execute();
 	}
+    
+    function GetIsLiked($path)
+    {
+        $sql = 'call GetIsLiked(:path)';
+        $IsLiked = self::getConnexion()->prepare($sql);
+        $IsLiked->bindParam(':path',$path,PDO::PARAM_STR);
+        $IsLiked->execute();
+        return !IsEmpty($IsLiked);
+    }
+    
+    function SetNewLike($path)
+    {
+        $dateTime = date('Y-m-d H-i-s');
+        $id_picture = 1;
+        $id_user = 1;
+        $sql ='call RegisterNewLike(:dateTimePictureLike,:id_picture,:id_user)';
+        $registerLike = self::getConnexion()->prepare($sql);
+        $registerLike->bindParam(':dateTimePictureLike',$dateTime,PDO::PARAM_STR);
+        $registerLike->bindParam(':id_picture',$id_picture,PDO::PARAM_INT);
+        $registerLike->bindParam(':id_user',$id_user,PDO::PARAM_INt);
+        $registerLike->execute();
+    }
+    
+    function UnlikeAPicture()
+    {
+        
+    }
+    
+    function GetAllPictures()
+    {
+        $sql = 'select * from tbl_pictures';
+        $pictures = self::getconnexion()->query($sql);
+        return $pictures;
+    }
 }
 
 ?>

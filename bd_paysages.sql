@@ -92,8 +92,20 @@ BEGIN
 END
 |
 
-select * from tbl_user;
+delimiter |
+create procedure RegisterNewLike(IN $dateTimePictureLike DateTime,IN $id_picture int,IN $id_user int)
+BEGIN 
+	insert into tbl_picture_like(dateTimePictureLike,id_picture,id_user)
+	values($dateTimePictureLike,$id_picture,$id_user);
+END
+|
 
+delimiter |
+create procedure GetIsLiked(IN $path varchar(50))
+BEGIN
+select * from tbl_pictures inner join tbl_picture_like on tbl_pictures.id_picture = tbl_picture_like.id_picture where tbl_pictures.picture = $path;
+End
+|
 
 
 insert into tbl_category(id_category,category)
@@ -118,7 +130,19 @@ values(4,"Saint-Alfred");
 insert into tbl_country(id_country  ,countryName )
 values(5,"Saint-Glinglin-des-Îles-Moutmouths");
 select * from tbl_country;
+
+
 call RegisterUser("Yannick","Jacques","yannJac","1234");
 call RegisterUser("Jessy","Rodrigue","JesRod","1234");
 call RegisterUser("YOh","Orange","YOhOr","1234");
 call RegisterUser("Vincent","TheRock","TheRockVince970","1234");
+call RegisterNewLike("2018-12-02 14:10:01",1,1);
+call RegisterNewLike("2018-12-02 16:50:01",3,1);
+call RegisterNewLike("2018-12-02 14:10:01",2,3);
+call RegisterNewLike("2018-12-02 14:10:01",4,2);
+call RegisterNewLike("2018-12-02 14:10:01",3,2);
+
+
+
+
+select * from tbl_picture_like;
