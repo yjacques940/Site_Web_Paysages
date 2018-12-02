@@ -32,6 +32,10 @@ require 'controlleur/controlleur.php';
 	{
 		MainPage();
 	}
+    if($_GET['action'] == "GetIsLiked" && isset($_GET['param']))
+    {
+        GetIsLiked($_GET['param']);
+    }
 
         if($_GET['action'] == "connexion")
 		{

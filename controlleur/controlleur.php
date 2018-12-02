@@ -28,7 +28,6 @@
 		
         require 'model/Manager.php';
         $manager= new Manager();
-        //$IsLiked = $manager->GetIsLiked();
         $Images = $manager->GetAllPictures();
         require 'view/view_gallery.php';
 	}
@@ -56,4 +55,11 @@
 		$manager = new Manager();
 		$manager->SavePathInDataBase($path);
 	}
+    
+    function GetIsLiked($path)
+    {
+        require 'model/Manager.php';
+        $manager = new Manager();
+        $Isliked = $manager->GetIsLiked($path);
+    }
 ?>   

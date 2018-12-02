@@ -20,15 +20,19 @@ ob_start();
         <?php
         while($image = $Images->fetch())
         {
-                $pathh = $image['picture'];
-				$count =0;
-				$count++;
+                $path = $image['picture'];
+                
 				?>
             <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+               
                 <?php
-				  echo '<img src="' .$pathh . '"/>';
+				  echo '<img src="' .$path . '"/>';
 			?>
+                   
                     <aside class="photo-box-caption">
+                      <button><a href = " <?php echo $path ?> "><i class="material-icons">center_focus_weak</i>
+                    </a></button>
+                       
                         <span>
 				<button id="add-to-favorites"
                class="mdc-icon-button"
@@ -38,7 +42,7 @@ ob_start();
                <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
                <i class="material-icons mdc-icon-button__icon">favorite_border</i>
                 </button>
-                    by <?php echo $count ?>
+                    by 
                 </span>
                     </aside>
             </div>
