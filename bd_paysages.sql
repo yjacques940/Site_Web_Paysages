@@ -114,6 +114,13 @@ select 1 from tbl_user where userName = $username;
 End
 |
 
+delimiter |
+create procedure CheckIfUserCredentialsAreValid(IN $username varchar(50), IN $password varchar(50))
+BEGIN
+select 1 from tbl_user where userName = $username and password = $password;
+End
+|
+
 
 insert into tbl_category(id_category,category)
 values(1,"Montagnes");
