@@ -115,6 +115,12 @@ End
 |
 
 delimiter |
+create procedure GetMostLikedPictures()
+BEGIN
+select count(id_picture_like) as likes,id_picture from tbl_picture_like order by likes desc; 
+End
+|
+delimiter |
 create procedure CheckIfUserCredentialsAreValid(IN $username varchar(50), IN $password varchar(50))
 BEGIN
 select 1 from tbl_user where userName = $username and password = $password;

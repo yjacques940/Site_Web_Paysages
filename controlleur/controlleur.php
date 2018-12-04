@@ -1,40 +1,49 @@
 <?php
-	function Test(){		
-        require 'view/vue_test.php';
-	}
+function Test()
+{
+    require 'view/vue_test.php';
+}
 
-	function MainPage(){
-		require 'view/accueil.php';
-	}
+function MainPage()
+{
+    require 'view/accueil.php';
+}
 
-	function MostPopularPicturesPage(){
-		require 'view/view_most_popular_pictures.php';
-		require("javascript/zoom.js");
-	}
+function MostPopularPicturesPage()
+{
+    require 'model/Manager.php';
+    $manager = new Manager();
+    $mostLikedPictures = $manager->GetMostLikedPictures();
+    $pictures = $manager->GetMostLikedPicturesByIdPicture($mostLikedPictures);
+    require 'view/view_most_popular_pictures.php';
+}
 
-	function AddImagePage(){
-		require 'model/Manager.php';
-		$manager = new Manager();
-		$countryList = $manager->GetAllCountries();
-		$categoryList = $manager->GetAllCategories();
-		require 'view/view_add_image.php';
-	}
+function AddImagePage()
+{
+    require 'model/Manager.php';
+    $manager = new Manager();
+    $countryList = $manager->GetAllCountries();
+    $categoryList = $manager->GetAllCategories();
+    require 'view/view_add_image.php';
+}
 
-	function ConnexionPage(){
-		require 'view/view_connexion.php';
-	}
+function ConnexionPage()
+{
+    require 'view/view_connexion.php';
+}
 
-	function AllPicturesPage(){
-		
-        require 'model/Manager.php';
-        $manager= new Manager();
-        $Images = $manager->GetAllPictures();
-        require 'view/view_gallery.php';
-	}
+function AllPicturesPage()
+{
+    require 'model/Manager.php';
+    $manager = new Manager();
+    $Images = $manager->GetAllPictures();
+    require 'view/view_gallery.php';
+}
 
-	function RegistrationPage(){
-		require 'view/view_registration.php';
-	}
+function RegistrationPage()
+{
+    require 'view/view_registration.php';
+}
 
     function checkIfUserIsValid($username, $password){
         $validCredentials = false;
@@ -48,11 +57,12 @@
         return $validCredentials;  
     }
 
-    function RegisterUser($firstname,$lastname,$username,$password){
-        require 'model/Manager.php';
-        $manager = new Manager();
-        $manager->RegisterUser($firstname,$lastname,$username,$password);
-    }
+function RegisterUser($firstname, $lastname, $username, $password)
+{
+    require 'model/Manager.php';
+    $manager = new Manager();
+    $manager->RegisterUser($firstname, $lastname, $username, $password);
+}
 
 	function AddImageInDatabase()
 	{

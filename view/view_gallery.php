@@ -42,7 +42,7 @@ ob_start();
                <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
                <i class="material-icons mdc-icon-button__icon">favorite_border</i>
                 </button>
-                    by 
+                    by <?php echo $manager->GetUserForEachPicture($image['id_picture'])->fetch()?>
                 </span>
                     </aside>
             </div>
