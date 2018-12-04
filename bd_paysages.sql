@@ -107,6 +107,13 @@ select * from tbl_pictures inner join tbl_picture_like on tbl_pictures.id_pictur
 End
 |
 
+delimiter |
+create procedure CheckIfUsernameExists(IN $username varchar(50))
+BEGIN
+select 1 from tbl_user where userName = $username;
+End
+|
+
 
 insert into tbl_category(id_category,category)
 values(1,"Montagnes");
@@ -143,6 +150,6 @@ call RegisterNewLike("2018-12-02 14:10:01",4,2);
 call RegisterNewLike("2018-12-02 14:10:01",3,2);
 
 
-
+call CheckIfUsernameExists("yannJac");
 
 select * from tbl_picture_like;
