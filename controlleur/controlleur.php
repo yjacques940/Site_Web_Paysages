@@ -62,4 +62,15 @@
         $manager = new Manager();
         $Isliked = $manager->GetIsLiked($path);
     }
+
+    function CheckIfUserCredentialsAreValid($username, $password)
+    {
+        $validCredentials = false;
+        require 'model/Manager.php';
+        $manager = new Manager();
+        $manager->CheckIfUserCredentialsAreValid($username,$password);
+        if(fetch()->$manager)	{
+		$validCredentials = true;
+	   }
+    }
 ?>   
