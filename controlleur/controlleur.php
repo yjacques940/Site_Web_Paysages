@@ -57,22 +57,31 @@ function RegisterUser($firstname, $lastname, $username, $password)
     $manager->RegisterUser($firstname, $lastname, $username, $password);
 }
 
-function AddImageInDatabase()
-{
-    require 'view/addData.php';
-    require 'model/Manager.php';
-    $addData = new addData();
-    $path = $addData->CheckImage();
-    $manager = new Manager();
-    $manager->SavePathInDataBase($path);
-}
+	function AddImageInDatabase()
+	{
+		require 'view/addData.php';
+		require 'model/Manager.php';
+		$addData = new addData();
+		$path = $addData->CheckImage();
+		$manager = new Manager();
+		$manager->SavePathInDataBase($path);
+	}
+    
+    function GetIsLiked($path)
+    {
+        require 'model/Manager.php';
+        $manager = new Manager();
+        $Isliked = $manager->GetIsLiked($path);
+    }
 
-function GetIsLiked($path)
-{
-    require 'model/Manager.php';
-    $manager = new Manager();
-    $Isliked = $manager->GetIsLiked($path);
-}
-
-
-?>
+    function CheckIfUserCredentialsAreValid($username, $password)
+    {
+        $validCredentials = false;
+        require 'model/Manager.php';
+        $manager = new Manager();
+        $manager->CheckIfUserCredentialsAreValid($username,$password);
+        if(fetch()->$manager)	{
+		$validCredentials = true;
+	   }
+    }
+?>   
