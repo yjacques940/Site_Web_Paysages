@@ -114,6 +114,12 @@ select 1 from tbl_user where userName = $username;
 End
 |
 
+delimiter |
+create procedure GetMostLikedPictures()
+BEGIN
+select count(id_picture_like) as likes,id_picture from tbl_picture_like order by likes desc; 
+End
+|
 
 insert into tbl_category(id_category,category)
 values(1,"Montagnes");
