@@ -76,6 +76,41 @@ class Manager extends Connexion
         $pictures = self::getconnexion()->query($sql);
         return $pictures;
     }
+
+    function GetMostLikedPictures()
+    {
+        $sql = 'select count(id_picture_like) as likes,id_picture_like from tbl_picture_like group by id_picture order by likes desc limit 10; ';
+        $result = self::getConnexion()->query($sql);
+        $result->execute();
+        return $result;
+    }
+
+    function GetMostLikedPicturesByIdPicture($mostLikedPictures)
+    {
+        $sql = 'select * from tbl_pictures where (tbl_picture.id_picture in ($mostLikedPictures))';
+        $result = self::getConnexion()->query($sql);
+        $result->execute();
+        return $result;
+    }
+
+    function GetUserForEachPicture($id_picture)
+    {
+            $sql = 'select id_user from tbl_pictures where id_picture = :id_picture';
+            $result = self::getConnexion()->prepare($sql);
+            $result->bindParam(':id_picture', $id_picture,PDO::PARAM_INT);
+            $result->execute();
+        $id_user = $result->fetch();
+        $sqlUser = 'select * from tbl_user where id_user = :id_user';
+        $user = self::getConnexion()->prepare($sqlUser);
+        $user->bindParam('id_user',$id_user,PDO::PARAM_INT);
+        $user->execute();
+        return $user['userName']->fetch();
+    }
+
+    function GetUserByIdUser($result)
+    {
+        
+    }
     
     function IsPictureLikeByUser($username, $id_picture){
         $sql = 'select 1 from tbl_picture_like where id_user in (select id_user from tbl_user where userName = :username) and id_picture = :id_picture';
