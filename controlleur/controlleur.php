@@ -63,16 +63,14 @@ function RegisterUser($firstname, $lastname, $username, $password)
     $manager->RegisterUser($firstname, $lastname, $username, $password);
 }
 
-	function AddImageInDatabase($id_country)
+	function AddImageInDatabase()
 	{
 		require 'view/addData.php';
 		require 'model/Manager.php';
 		$addData = new addData();
 		$path = $addData->CheckImage();
 		$manager = new Manager();
-        echo "controller->idcountry->".$id_country;
-		//$manager->SavePathInDataBase($path,$id_country);
-        header("Location: index.php?action=AddImage");
+		$manager->SavePathInDataBase($path);
 	}
     
     function GetIsLiked($path)
@@ -82,4 +80,14 @@ function RegisterUser($firstname, $lastname, $username, $password)
         $Isliked = $manager->GetIsLiked($path);
     }
 
+    function CheckIfUserCredentialsAreValid($username, $password)
+    {
+        $validCredentials = false;
+        require 'model/Manager.php';
+        $manager = new Manager();
+        $manager->CheckIfUserCredentialsAreValid($username,$password);
+        if(fetch()->$manager)	{
+		$validCredentials = true;
+	   }
+    }
 ?>   
