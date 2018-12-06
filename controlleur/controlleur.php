@@ -63,14 +63,15 @@ function RegisterUser($firstname, $lastname, $username, $password)
     $manager->RegisterUser($firstname, $lastname, $username, $password);
 }
 
-	function AddImageInDatabase()
+	function AddImageInDatabase($id_country)
 	{
 		require 'view/addData.php';
 		require 'model/Manager.php';
 		$addData = new addData();
 		$path = $addData->CheckImage();
 		$manager = new Manager();
-		$manager->SavePathInDataBase($path);
+        echo "controller->idcountry->".$id_country;
+		$manager->SavePathInDataBase($path,$id_country);
         header("Location: index.php?action=AddImage");
 	}
     

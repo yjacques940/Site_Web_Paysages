@@ -24,9 +24,10 @@ require 'controlleur/controlleur.php';
 	{
 		 AddImagePage();
 	}
-	if($_GET['action'] == "AddImageInDatabase")
+	if($_GET['action'] == "AddImageInDatabase" && isset($_POST['country']))
 	{
-		 AddImageInDatabase();
+        echo $_POST['country'];
+		 AddImageInDatabase(htmlentities($_POST['country']));
 	}
 	if($_GET['action'] == "Accueil")
 	{

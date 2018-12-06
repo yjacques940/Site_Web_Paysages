@@ -49,6 +49,7 @@ CREATE TABLE tbl_country(
 CREATE TABLE tbl_pictures(
         id_picture      Int  Auto_increment  NOT NULL ,
         picture         Varchar(50) NOT NULL ,
+        picture_title 	varchar(50) NOT NULL,
         dateTimePicture Datetime NOT NULL ,
         id_category     Int NOT NULL ,
         id_country      Varchar (50) NOT NULL ,
@@ -85,10 +86,10 @@ BEGIN
 END
 | 
 delimiter |
-create procedure RegisterPicture(IN $picture varchar(50), IN $dateTimePicture DateTime, IN $id_category int, IN $id_country Varchar(50), IN $id_user int)
+create procedure RegisterPicture(IN $picture varchar(50), IN $dateTimePicture DateTime, IN $id_category int, IN $id_country Varchar(50), IN $id_user int,IN $title varchar(50))
 BEGIN
-	INSERT INTO tbl_pictures(picture,dateTimePicture,id_category,id_country,id_user)
-	VALUES($picture,$dateTimePicture,$id_category,$id_country,$id_user);
+	INSERT INTO tbl_pictures(picture,dateTimePicture,id_category,id_country,id_user,picture_title)
+	VALUES($picture,$dateTimePicture,$id_category,$id_country,$id_user,$title);
 END
 |
 

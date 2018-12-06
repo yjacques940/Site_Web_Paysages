@@ -27,19 +27,22 @@ class Manager extends Connexion
 		return $countryList;
 	}
 
-	function SavePathInDataBase($path)
+	function SavePathInDataBase($path,$id_country)
 	{
 			$id_category = 1;
-			$id_country = '1';
+            $title = "Test";
+			$id_country = $id_country;
+        echo "idcountry " . $id_country;
 			$id_user = self::GetUserIdByUserName()->fetch();
         $dateTime = date('Y-m-d H-i-s');
-		$sql = 'call RegisterPicture(:path,:dateTimePicture,:id_category,:id_country,:id_user)';
+		$sql = 'call RegisterPicture(:path,:dateTimePicture,:id_category,:id_country,:id_user,:title)';
 		$registerImage = self::getConnexion()->prepare($sql);
         $registerImage->bindParam(':path',$path,PDO::PARAM_STR);
 		$registerImage->bindParam(':dateTimePicture',$dateTime,PDO::PARAM_STR);
 		$registerImage->bindParam(':id_category',$id_category,PDO::PARAM_INT);
 		$registerImage->bindParam(':id_country',$id_country,PDO::PARAM_STR);
 		$registerImage->bindParam(':id_user',$id_user['id_user'],PDO::PARAM_INT);
+        $registerImage->bindParam(':title',$title,PDO::PARAM_STR);
 		$registerImage->execute();
 	}
     
