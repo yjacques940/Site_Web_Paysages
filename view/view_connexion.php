@@ -11,8 +11,7 @@ ob_start();
 
 </head>
 <body>
-    <form id="formulaire_connexion" class="pure-form pure-form-aligned" action="index.php?action=connexion" type="actionForm" method="POST">
-        <fieldset>
+    <form id="formulaire_connexion" class="pure-form pure-form-aligned" action="index.php?action=Login" type="actionForm" method="POST">
             <div class="pure-control-group">
                     <label for="username">Nom d'utilisateur</label>
                     <input name="username" id="username" type="text" placeholder="Nom d'utilisateur">

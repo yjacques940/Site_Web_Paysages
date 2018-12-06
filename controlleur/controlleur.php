@@ -37,7 +37,15 @@
 	}
 
     function checkIfUserIsValid($username, $password){
-        return ($username == "Bob" && $password == "111");   
+        $validCredentials = false;
+        require_once 'model/Manager.php';
+        $manager = new Manager();
+        $data = $manager->CheckIfUserCredentialsAreValid($username,$password);
+        $valid = $data->fetch();
+        if($valid['valid'] == 1){
+		  $validCredentials = true;
+	     }
+        return $validCredentials;  
     }
 
     function RegisterUser($firstname,$lastname,$username,$password){
@@ -63,14 +71,4 @@
         $Isliked = $manager->GetIsLiked($path);
     }
 
-    function CheckIfUserCredentialsAreValid($username, $password)
-    {
-        $validCredentials = false;
-        require 'model/Manager.php';
-        $manager = new Manager();
-        $manager->CheckIfUserCredentialsAreValid($username,$password);
-        if(fetch()->$manager)	{
-		$validCredentials = true;
-	   }
-    }
 ?>   

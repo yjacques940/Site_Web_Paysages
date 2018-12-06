@@ -76,6 +76,17 @@ class Manager extends Connexion
         $pictures = self::getconnexion()->query($sql);
         return $pictures;
     }
+    
+    function CheckIfUserCredentialsAreValid($username, $password)
+    {
+        $validCredentials = false;
+        $sql ='select 1 as valid from tbl_user where userName = :userName and password = :password';
+        $checkUser = self::getConnexion()->prepare($sql);
+        $checkUser->bindParam(':userName',$username,PDO::PARAM_STR);
+        $checkUser->bindParam(':password',$password,PDO::PARAM_STR);
+        $checkUser->execute();
+        return $checkUser;
+    }
 }
 
 ?>
