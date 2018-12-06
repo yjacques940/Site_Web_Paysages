@@ -99,12 +99,12 @@ class Manager extends Connexion
             $result = self::getConnexion()->prepare($sql);
             $result->bindParam(':id_picture', $id_picture,PDO::PARAM_INT);
             $result->execute();
-        $id_user = $result->fetch();
+         $id_user = $result->fetch();
         $sqlUser = 'select * from tbl_user where id_user = :id_user';
         $user = self::getConnexion()->prepare($sqlUser);
-        $user->bindParam('id_user',$id_user,PDO::PARAM_INT);
+        $user->bindParam('id_user',$id_user['id_user'],PDO::PARAM_INT);
         $user->execute();
-        return $user['userName']->fetch();
+        return $user;
     }
 
     function GetUserByIdUser($result)
