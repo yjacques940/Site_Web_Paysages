@@ -21,7 +21,6 @@ ob_start();
         while($image = $Images->fetch())
         {
                 $path = $image['picture'];
-                
 				?>
             <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
                
