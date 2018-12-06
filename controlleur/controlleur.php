@@ -71,7 +71,7 @@ function RegisterUser($firstname, $lastname, $username, $password)
 		$path = $addData->CheckImage();
 		$manager = new Manager();
 		$manager->SavePathInDataBase($path);
-        self::AddImagePage();
+        header("Location: index.php?action=AddImage");
 	}
     
     function GetIsLiked($path)
