@@ -57,7 +57,9 @@ ob_start();
 
                 ?>
                 </button>
-                    by <?php echo $manager->GetUserForEachPicture($image['id_picture'])->fetch()?>
+                    by <?php $name =  $manager->GetUserForEachPicture($image['id_picture'])->fetch() ;
+                        echo $name['userName'];
+                            ?>
                 </span>
                     </aside>
             </div>
