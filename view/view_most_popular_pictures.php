@@ -28,10 +28,14 @@ ob_start();
 			?>
                    
                     <aside class="photo-box-caption">
+                     <span>
+                      by <?php $name =  $manager->GetUserForEachPicture($image['id_picture'])->fetch() ;
+                        echo $name['userName'];
+                            ?>
                       <button><a href = " <?php echo $path ?> "><i class="material-icons">center_focus_weak</i>
                     </a></button>
                        
-                        <span>
+                        
 				<button id="add-to-favorites"
                class="mdc-icon-button"
                aria-label="Add to favorites"
@@ -41,9 +45,7 @@ ob_start();
                <i class="material-icons mdc-icon-button__icon">favorite_border</i>
                <?php echo $image['likes'];?>
                 </button>
-                    by <?php $name =  $manager->GetUserForEachPicture($image['id_picture'])->fetch() ;
-                        echo $name['userName'];
-                            ?>
+                   
                 </span>
                     </aside>
             </div>

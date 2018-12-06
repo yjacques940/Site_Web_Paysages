@@ -11,7 +11,7 @@ class addData{
                 {
                         /*if(filesize($_FILES['fichier_source']['tmp_name'])<2000000)
                         {*/
-                            echo $path;
+                            
                             return $path;
                        // }
                 }
