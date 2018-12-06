@@ -20,6 +20,7 @@ ob_start();
         <?php
         while($image = $Images->fetch())
         {
+                
                 $path = $image['picture'];
 				?>
             <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
@@ -40,6 +41,8 @@ ob_start();
                aria-pressed="false">
                <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
                <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+               <?php $likes = $manager->GetLikesOfAPicture($image['id_picture'])->fetch();
+                    echo $likes['likes']; ?>
                 </button>
                     by <?php $name =  $manager->GetUserForEachPicture($image['id_picture'])->fetch() ;
                         echo $name['userName'];

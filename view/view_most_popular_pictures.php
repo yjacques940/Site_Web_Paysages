@@ -16,10 +16,8 @@ ob_start();
 <body>
 <div>
         <?php
-        $count = 0;
         while($image = $mostLikedPictures->fetch())
         {
-            $count++;
                 $picturePath = $manager->GetMostLikedPicturesByIdPicture($image['id_picture'])->fetch();
                 $path = $picturePath['picture'];
 				?>
@@ -49,7 +47,7 @@ ob_start();
                 </span>
                     </aside>
             </div>
-            <?php }  ?>
+            <?php } ?>
    
 
 </div>

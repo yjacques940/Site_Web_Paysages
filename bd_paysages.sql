@@ -156,6 +156,8 @@ call RegisterUser("Yannick","Jacques","yannJac","1234");
 call RegisterUser("Jessy","Rodrigue","JesRod","1234");
 call RegisterUser("YOh","Orange","YOhOr","1234");
 call RegisterUser("Vincent","TheRock","TheRockVince970","1234");
+call RegisterUser("Marko","Olivier","MarkO","1234");
+call RegisterUser("Sam","Son","Samson","1234");
 call RegisterNewLike("2018-12-02 14:10:01",1,1);
 call RegisterNewLike("2018-12-02 16:50:01",3,1);
 call RegisterNewLike("2018-12-02 14:10:01",2,3);

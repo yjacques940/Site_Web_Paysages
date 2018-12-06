@@ -82,7 +82,15 @@ class Manager extends Connexion
         $sql = 'select count(id_picture_like) as likes,id_picture_like,id_picture from tbl_picture_like group by id_picture order by likes desc limit 10';
         $result = self::getConnexion()->query($sql);
         $result->execute();
-        $test = $result->fetch();
+        return $result;
+    }
+    
+    function GetLikesOfAPicture($id_picture)
+    {
+        $sql = 'select count(id_picture_like) as likes,id_picture_like,id_picture from tbl_picture_like where id_picture = :id_picture';
+        $result = self::getConnexion()->prepare($sql);
+        $result->bindParam(':id_picture',$id_picture,PDO::PARAM_INT);
+        $result->execute();
         return $result;
     }
 
