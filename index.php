@@ -56,7 +56,7 @@ require 'controlleur/controlleur.php';
 
     if($_GET['action'] == "RegisterUser")
 	{
-		 RegisterUser(htmlentitites($_POST['firstname']),htmlentitites($_POST['lastname']),htmlentities($_POST['username']), htmlentities($_POST['password']);
+		 RegisterUser(htmlentitites($_POST['firstname']),htmlentitites($_POST['lastname']),htmlentities($_POST['username']), htmlentities($_POST['password']));
         Mainpage();
 	
 
@@ -70,11 +70,15 @@ require 'controlleur/controlleur.php';
             $_SESSION['username'] = $username;
             MainPage();
         }else{
-            $errorMessage = "Nom d/'utilisateur ou mot de passe invalide"
+            $errorMessage = "Nom d/'utilisateur ou mot de passe invalide";
             ConnexionPage();
         }
 	}
-
+    if($_GET['action']=="LikeDislikePicture")
+    {
+        LikeDislikePicture();    
+    }
+    }
 	else
 	{
 	 MainPage();

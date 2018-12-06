@@ -38,9 +38,19 @@ ob_start();
                class="mdc-icon-button"
                aria-label="Add to favorites"
                aria-hidden="true"
-               aria-pressed="false">
-               <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
-               <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+               aria-pressed="false"
+               value=$image['id_picture']
+               >
+               <?php 
+                if(!empty($_SESSION['userName'])){
+                    if($manager->IsPictureLikeByUser($image['id_picture'], $_SESSION['userName'])){
+                   echo  '<i  class="material-icons mdc-icon-button__icon">favorite</i>';
+                    }
+                }else{
+                     echo  '<i class="material-icons mdc-icon-button__icon">favorite_border</i>';
+                }
+
+                ?>
                 </button>
                     by <?php $name =  $manager->GetUserForEachPicture($image['id_picture'])->fetch() ;
                         echo $name['userName'];
@@ -51,8 +61,23 @@ ob_start();
             <?php } ?>
 
     </div>
-</body>
+    <script>
+        $(document).ready(function(){
+               $('#add-to-favorites').on('click',function(){
+                alert("fuck off");
+                $.ajax({
+                        url: "index.php",
+                        data:{
+                            action: "likeDislikePicture",
+                            id_picture:,
+                        },
 
+                })
+                })
+        })
+
+</script>
+</body>
 </html>
 
 <?php $contenu = ob_get_clean(); ?>
