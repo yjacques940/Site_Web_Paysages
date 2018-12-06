@@ -16,15 +16,18 @@ ob_start();
         <form class="pure-form pure-form-aligned" id="mon_formulaire" method="Post" action="index.php?action=AddImageInDatabase" enctype="multipart/form-data">
           <fieldset>
             <h1 for="fichier_source">Choisissez une image</h1> 
-             <div>
-			<h3>Ville de provenance :
-			<select name="country">
+           <h3>
+              <!--<div class="pure-control-group">
+                    <label for="imageTitle">Titre de l'image :</label>
+                    <input name="imageTitle" id="imageTitle" type="text" placeholder="titre">
+                </div>-->
+			Ville de provenance :
+			<select name="country" id="country">
 			<?php while($data = $countryList->fetch()) {?>
-			<option value="<?php $data['id_country']?>"> <?php echo $data['countryName'] ?> </option>
+			<option  value="<?php $data['id_country']?>"> <?php echo $data['countryName'] ?> </option>
 			<?php };?>
 			</select>
 			</h3>
-			</div>
 			<div>
 			<h3>Catégorie :
 			<select name="category">
