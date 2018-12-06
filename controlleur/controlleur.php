@@ -14,7 +14,6 @@ function MostPopularPicturesPage()
     require 'model/Manager.php';
     $manager = new Manager();
     $mostLikedPictures = $manager->GetMostLikedPictures();
-    $pictures = $manager->GetMostLikedPicturesByIdPicture($mostLikedPictures);
     require 'view/view_most_popular_pictures.php';
 }
 
