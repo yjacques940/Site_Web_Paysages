@@ -32,7 +32,6 @@ class Manager extends Connexion
 			$id_category = 1;
 			$id_country = '1';
 			$id_user = self::GetUserIdByUserName()->fetch();
-        echo "test".$id_user['id_user'];
         $dateTime = date('Y-m-d H-i-s');
 		$sql = 'call RegisterPicture(:path,:dateTimePicture,:id_category,:id_country,:id_user)';
 		$registerImage = self::getConnexion()->prepare($sql);
