@@ -31,7 +31,8 @@ class Manager extends Connexion
 	{
 			$id_category = 1;
 			$id_country = '1';
-			$id_user = 1;
+			$id_user = self::GetUserIdByUserName()->fetch();
+        echo "test".$id_user['id_user'];
         $dateTime = date('Y-m-d H-i-s');
 		$sql = 'call RegisterPicture(:path,:dateTimePicture,:id_category,:id_country,:id_user)';
 		$registerImage = self::getConnexion()->prepare($sql);
@@ -39,7 +40,7 @@ class Manager extends Connexion
 		$registerImage->bindParam(':dateTimePicture',$dateTime,PDO::PARAM_STR);
 		$registerImage->bindParam(':id_category',$id_category,PDO::PARAM_INT);
 		$registerImage->bindParam(':id_country',$id_country,PDO::PARAM_STR);
-		$registerImage->bindParam(':id_user',$id_user,PDO::PARAM_INT);
+		$registerImage->bindParam(':id_user',$id_user['id_user'],PDO::PARAM_INT);
 		$registerImage->execute();
 	}
     
@@ -56,12 +57,12 @@ class Manager extends Connexion
     {
         $dateTime = date('Y-m-d H-i-s');
         $id_picture = 1;
-        $id_user = 1;
+        $id_user = self::GetUserIdByUserName()->fetch();
         $sql ='call RegisterNewLike(:dateTimePictureLike,:id_picture,:id_user)';
         $registerLike = self::getConnexion()->prepare($sql);
         $registerLike->bindParam(':dateTimePictureLike',$dateTime,PDO::PARAM_STR);
         $registerLike->bindParam(':id_picture',$id_picture,PDO::PARAM_INT);
-        $registerLike->bindParam(':id_user',$id_user,PDO::PARAM_INt);
+        $registerLike->bindParam(':id_user',$id_user['id_user'],PDO::PARAM_INt);
         $registerLike->execute();
     }
     
@@ -122,12 +123,16 @@ class Manager extends Connexion
         $user->execute();
         return $user;
     }
-
-    function GetUserByIdUser($result)
-    {
-        
-    }
     
+    function GetUserIdByUserName()
+    {
+        $yaya = "yannJac";
+        $sql = 'select id_user from tbl_user where userName = :userName';
+        $user = self::getConnexion()->prepare($sql);
+        $user->bindParam(':userName',$_SESSION['username'],PDO::PARAM_STR);
+        $user->execute();
+        return $user;
+    }
     function CheckIfUserCredentialsAreValid($username, $password)
     {
         $validCredentials = false;

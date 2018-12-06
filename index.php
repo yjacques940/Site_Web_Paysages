@@ -58,8 +58,6 @@ require 'controlleur/controlleur.php';
 	{
 		 RegisterUser(htmlentities($_POST['firstname']),htmlentities($_POST['lastname']),htmlentities($_POST['username']), htmlentities($_POST['password']));
         Mainpage();
-	
-
     }
     if($_GET['action'] == "Login")
 	{
@@ -79,5 +77,6 @@ require 'controlleur/controlleur.php';
 	{
 	   MainPage();
 	}
+    
 
  ?>
