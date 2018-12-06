@@ -56,28 +56,28 @@ require 'controlleur/controlleur.php';
 
     if($_GET['action'] == "RegisterUser")
 	{
-		 RegisterUser(htmlentitites($_POST['firstname']),htmlentitites($_POST['lastname']),htmlentities($_POST['username']), htmlentities($_POST['password']);
+		 RegisterUser(htmlentities($_POST['firstname']),htmlentities($_POST['lastname']),htmlentities($_POST['username']), htmlentities($_POST['password']));
         Mainpage();
 	
 
     }
     if($_GET['action'] == "Login")
 	{
-        $username = htmlentitites($_POST['username']);
+        $username = htmlentities($_POST['username']);
         $password = htmlentities($_POST['password']);
-	    if(CheckIfUserCredentialsAreValid($username, $password))
+	    if(CheckIfUserIsValid($username, $password)==true)
         {
             $_SESSION['username'] = $username;
-            MainPage();
+             MainPage();
         }else{
-            $errorMessage = "Nom d/'utilisateur ou mot de passe invalide"
+            $errorMessage = "Nom d/'utilisateur ou mot de passe invalide";
             ConnexionPage();
         }
 	}
-
+    }
 	else
 	{
-	 MainPage();
+	   MainPage();
 	}
 
  ?>
