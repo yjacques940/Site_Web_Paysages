@@ -79,7 +79,15 @@ class Manager extends Connexion
         $pictures = self::getconnexion()->query($sql);
         return $pictures;
     }
-
+    
+    function IsPictureLikeByUser($username, $id_picture){
+        $sql = 'select 1 from tbl_picture_like where id_user in (select id_user from tbl_user where userName = :username) and id_picture = :id_picture';
+        $pictureLiked= self::getconnexion()->query($sql);
+        $pictureLiked->bindParam(':username',$username,PDO::PARAM_STR);
+        $pictureLiked->bindParam(':id_picture',$id_picture,PDO::PARAM_INT);
+        return $pictureLiked;
+    }
+    
     function GetMostLikedPictures()
     {
         $sql = 'select count(id_picture_like) as likes,id_picture_like,id_picture from tbl_picture_like group by id_picture order by likes desc limit 10';

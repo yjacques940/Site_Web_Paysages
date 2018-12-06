@@ -73,6 +73,10 @@ require 'controlleur/controlleur.php';
             ConnexionPage();
         }
 	}
+    if($_GET['action']=="LikeDislikePicture")
+    {
+        LikeDislikePicture();    
+    }
     }
 	else
 	{
