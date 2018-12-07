@@ -2,48 +2,48 @@
 session_start();
 
 require 'controlleur/controlleur.php';
-	if(!empty($_GET['action']))
+	if(htmlentities(!empty($_GET['action'])))
 	{
-	if($_GET['action'] == "MostPopularPicturesPage")
+	if(htmlentities($_GET['action']) == "MostPopularPicturesPage")
 	{
 		 MostPopularPicturesPage();
 	}
-	if($_GET['action'] == "ConnexionPage")
+	if(htmlentities($_GET['action']) == "ConnexionPage")
 	{
 		 ConnexionPage();
 	}
-	if($_GET['action'] == "Registration")
+	if(htmlentities($_GET['action']) == "Registration")
 	{
 		 RegistrationPage();
 	}
-	if($_GET['action'] == "AllImages")
+	if(htmlentities($_GET['action']) == "AllImages")
 	{
 		 AllPicturesPage();
 	}
-	if($_GET['action'] == "AddImage")
+	if(htmlentities($_GET['action']) == "AddImage")
 	{
 		 AddImagePage();
 	}
-	if($_GET['action'] == "AddImageInDatabase" && isset($_POST['country']) && isset($_POST['category'])&& isset($_POST['imageTitle']))
+	if(htmlentities($_GET['action']) == "AddImageInDatabase" && htmlentities(isset($_POST['country'])) && htmlentities(isset($_POST['category'])) && htmlentities(isset($_POST['imageTitle'])))
 	{
 		 AddImageInDatabase(htmlentities($_POST['country']),htmlentities($_POST['category']),htmlentities($_POST['imageTitle']));
 	}
-	if($_GET['action'] == "Accueil")
+	if(htmlentities($_GET['action']) == "Accueil")
 	{
 		MainPage();
 	}
-    if($_GET['action'] == "GetIsLiked" && isset($_GET['param']))
+    if(htmlentities($_GET['action']) == "GetIsLiked" && isset($_GET['param']))
     {
-        GetIsLiked($_GET['param']);
+        GetIsLiked(htmlentities($_GET['param']));
     }
 
-        if($_GET['action'] == "connexion")
+        if(htmlentities($_GET['action']) == "connexion")
 		{
-            if (isset($_POST['username']) && isset($_POST['password']))
+            if (htmlentities(isset($_POST['username'])) && htmlentities(isset($_POST['password'])))
 			{
                 if(checkIfUserIsValid(htmlentities($_POST['username']),htmlentities($_POST['password'])))
 				{
-                    $_SESSION['username'] = $_POST['username'];
+                    $_SESSION['username'] = htmlentities($_POST['username']);
                      Test();	
                 }
 				else
@@ -54,12 +54,12 @@ require 'controlleur/controlleur.php';
 			}
 	    }
 
-    if($_GET['action'] == "RegisterUser")
+    if(htmlentities($_GET['action']) == "RegisterUser")
 	{
 		 RegisterUser(htmlentities($_POST['firstname']),htmlentities($_POST['lastname']),htmlentities($_POST['username']), htmlentities($_POST['password']));
         Mainpage();
     }
-    if($_GET['action'] == "Login")
+    if(htmlentities($_GET['action']) == "Login")
 	{
         $username = htmlentities($_POST['username']);
         $password = htmlentities($_POST['password']);
