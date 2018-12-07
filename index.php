@@ -24,10 +24,9 @@ require 'controlleur/controlleur.php';
 	{
 		 AddImagePage();
 	}
-	if($_GET['action'] == "AddImageInDatabase" && isset($_POST['country']))
+	if($_GET['action'] == "AddImageInDatabase" && isset($_POST['country']) && isset($_POST['category'])&& isset($_POST['imageTitle']))
 	{
-        echo "id country_INDEX =>" . $_POST['country'];
-		 AddImageInDatabase(htmlentities($_POST['country']));
+		 AddImageInDatabase(htmlentities($_POST['country']),htmlentities($_POST['category']),htmlentities($_POST['imageTitle']));
 	}
 	if($_GET['action'] == "Accueil")
 	{

@@ -27,13 +27,9 @@ class Manager extends Connexion
 		return $countryList;
 	}
 
-	function SavePathInDataBase($path,$id_country)
+	function SavePathInDataBase($path,$id_country,$id_category,$title)
 	{
-			$id_category = 1;
-            $title = "Test";
-
 			$id_user = self::GetUserIdByUserName()->fetch();
-
         $dateTime = date('Y-m-d H-i-s');
 		$sql = 'call RegisterPicture(:path,:title,:dateTimePicture,:id_category,:id_country,:id_user)';
 		$registerImage = self::getConnexion()->prepare($sql);

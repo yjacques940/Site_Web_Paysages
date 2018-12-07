@@ -17,10 +17,10 @@ ob_start();
           <fieldset>
             <h1 for="fichier_source">Choisissez une image</h1> 
            <h3>
-              <!--<div class="pure-control-group">
+              <div class="pure-control-group">
                     <label for="imageTitle" required>Titre de l'image :</label>
-                    <input name="imageTitle" id="imageTitle" type="text" placeholder="titre">
-                </div>-->
+                    <input name="imageTitle" id="imageTitle" type="text" placeholder="titre" required>
+                </div>
 			Ville de provenance :
 			<select name="country" id="country" >
 			<?php while($data = $countryList->fetch()) {?>
@@ -30,7 +30,7 @@ ob_start();
 			</h3>
 			<div>
 			<h3>Catégorie :
-			<select name="category">
+			<select name="category" id="category">
 			<?php while($data = $categoryList->fetch()) {?>
 			<option value="<?php echo $data['id_category']?>"> <?php echo $data['category'] ?></option>
 			<?php };?>
@@ -42,7 +42,7 @@ ob_start();
                       <p>
 					  <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
 					  <input type="hidden" name="MIN_FILE_SIZE" value="100">
-                          <input type="file" name="fichier_source" />
+                          <input type="file" name="fichier_source" required />
                           <input type="submit" value="Envoyer" />
                       </p>
                   </form></h4>
