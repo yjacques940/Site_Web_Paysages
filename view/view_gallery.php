@@ -16,7 +16,7 @@ ob_start();
 </head>
 
 <body>
-    <div>
+    <div class="gallery">
         <?php
         while($image = $Images->fetch())
         {
@@ -27,7 +27,7 @@ ob_start();
                
                 <?php
 				  echo '<img src="' .$path . '"/>';
-			?>
+			     ?>
                    
                     <aside class="photo-box-caption">
                      <span>
@@ -68,18 +68,18 @@ ob_start();
     </div>
     <script>
         $(document).ready(function(){
-               $('#add-to-favorites').on('click',function(){
+               $('gallery').on('click','likeDislikeButton',function(){
                 alert("fuck off");
                 $.ajax({
                         url: "index.php",
                         data:{
                             action: "likeDislikePicture",
-                            id_picture:,
+                            id_picture:this.value,
                         },
 
-                })
-                })
-        })
+                });
+            });
+        });
 
 </script>
 </body>

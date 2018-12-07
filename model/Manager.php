@@ -68,9 +68,28 @@ class Manager extends Connexion
         $registerLike->execute();
     }
     
-    function UnlikeAPicture()
+    function UnlikeAPicture($id_user,$id_picture)
     {
-        
+        $id_picture = 1;
+        $id_user = 1;
+        $sql ='delete from tbl_picture_like where id_picture = :id_picture and id_user = :id_user';
+        $dislike = self::getConnexion()->prepare($sql);
+        $dislike->bindParam(':id_picture',$id_picture,PDO::PARAM_INT);
+        $dislike->bindParam(':id_user',$id_user,PDO::PARAM_INT);
+        $dislike->execute();
+    }
+    
+    function LikePicture($id_user, $id_picture)
+    {
+        $dateTime = date('Y-m-d H-i-s');
+        $id_picture = 1;
+        $id_user = 1;
+        $sql ='call RegisterNewLike(:dateTimePictureLike,:id_picture,:id_user)';
+        $registerLike = self::getConnexion()->prepare($sql);
+        $registerLike->bindParam(':dateTimePictureLike',$dateTime,PDO::PARAM_STR);
+        $registerLike->bindParam(':id_picture',$id_picture,PDO::PARAM_INT);
+        $registerLike->bindParam(':id_user',$id_user,PDO::PARAM_INt);
+        $registerLike->execute();
     }
     
     function GetAllPictures()
@@ -83,8 +102,9 @@ class Manager extends Connexion
     function IsPictureLikeByUser($username, $id_picture){
         $sql = 'select 1 from tbl_picture_like where id_user in (select id_user from tbl_user where userName = :username) and id_picture = :id_picture';
         $pictureLiked= self::getconnexion()->query($sql);
-        $pictureLiked->bindParam(':username',$username,PDO::PARAM_STR);
-        $pictureLiked->bindParam(':id_picture',$id_picture,PDO::PARAM_INT);
+        $pictureLiked->bindParam(':username',$username,$username,PDO::PARAM_STR);
+        $pictureLiked->bindParam(':id_picture',$id_picture,$id_picture,PDO::PARAM_INT);
+        $pictureLiked->execute();
         return $pictureLiked;
     }
     
