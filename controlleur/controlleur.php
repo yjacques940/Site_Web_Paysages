@@ -86,8 +86,17 @@ function RegisterUser($firstname, $lastname, $username, $password)
         require 'model/Manager.php';
         $manager = new Manager();
         $manager->CheckIfUserCredentialsAreValid($username,$password);
-        if(fetch()->$manager)	{
+        if(fetch()->$manager){
 		$validCredentials = true;
 	   }
     }
+    function LikeDislikePicture($id_picture, $username)
+    {
+        require 'model/Manager.php';
+        $manager = new Manager();
+        if(IsPictureLikeByUser($id_picture,$username)->fetch() == true){
+            
+        }
+    }
+
 ?>   

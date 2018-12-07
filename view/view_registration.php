@@ -6,9 +6,6 @@ ob_start();
 ?>
 <head>
 <meta charset="UTF-8">
-    <script type="text/javascript" src="./jquery-validation-1.15.0/lib/jquery-1.11.1.js"></script>
-<script type="text/javascript" src="./jquery-validation-1.15.0/dist/jquery.validate.min.js"></script>
-<script type="text/javascript" src="./jquery-validation-1.15.0/dist/localization/messages_fr.js"></script>
 
 </head>
 <body>

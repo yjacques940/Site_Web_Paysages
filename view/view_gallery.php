@@ -16,7 +16,7 @@ ob_start();
 </head>
 
 <body>
-    <div class="gallery">
+    <div id="gallery">
         <?php
         while($image = $Images->fetch())
         {
@@ -44,11 +44,11 @@ ob_start();
                aria-label="Add to favorites"
                aria-hidden="true"
                aria-pressed="false"
-               value=$image['id_picture']
+              value= <?php echo $image['id_picture'] ?>
                >
                <?php 
-                if(!empty($_SESSION['userName'])){
-                    if($manager->IsPictureLikeByUser($image['id_picture'], $_SESSION['userName'])){
+                if(!empty($_SESSION['username'])){
+                    if($manager->IsPictureLikeByUser($image['id_picture'], $_SESSION['username'])){
                    echo  '<i  class="material-icons mdc-icon-button__icon">favorite</i>';
                     }
                 }else{
@@ -68,14 +68,15 @@ ob_start();
     </div>
     <script>
         $(document).ready(function(){
-               $('gallery').on('click','likeDislikeButton',function(){
-                alert("fuck off");
+               $('#gallery').on('click','.likeDislikeButton',function(){
+                alert(this.value);
                 $.ajax({
                         url: "index.php",
                         data:{
                             action: "likeDislikePicture",
                             id_picture:this.value,
                         },
+                        
 
                 });
             });
