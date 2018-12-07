@@ -1,0 +1,4 @@
+1- Exécuter le script bd_paysages.sql
+2- Exécuter le script Executer_apres_avoir_cree_la_bd.sql
+3- Tester l'application web
+4- Tester l'ajout avant de se connecter et après!
