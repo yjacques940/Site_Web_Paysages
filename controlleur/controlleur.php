@@ -70,7 +70,7 @@ function RegisterUser($firstname, $lastname, $username, $password)
 		$addData = new addData();
 		$path = $addData->CheckImage();
 		$manager = new Manager();
-		$manager->SavePathInDataBase($path,$id_country,$id_category,$title);
+		$manager->SavePathInDataBase($path,$id_country,$id_category,$title,$_SESSION['username']);
         header("Location: index.php?action=AddImage");
 	}
     

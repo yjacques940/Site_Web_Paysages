@@ -27,9 +27,9 @@ class Manager extends Connexion
 		return $countryList;
 	}
 
-	function SavePathInDataBase($path,$id_country,$id_category,$title)
+	function SavePathInDataBase($path,$id_country,$id_category,$title,$username)
 	{
-			$id_user = self::GetUserIdByUserName()->fetch();
+			$id_user = self::GetUserIdByUserName($username)->fetch();
         $dateTime = date('Y-m-d H-i-s');
 		$sql = 'call RegisterPicture(:path,:title,:dateTimePicture,:id_category,:id_country,:id_user)';
 		$registerImage = self::getConnexion()->prepare($sql);
@@ -122,12 +122,11 @@ class Manager extends Connexion
         return $user;
     }
     
-    function GetUserIdByUserName()
+    function GetUserIdByUserName($username)
     {
-        $yaya = "yannJac";
         $sql = 'select id_user from tbl_user where userName = :userName';
         $user = self::getConnexion()->prepare($sql);
-        $user->bindParam(':userName',$yaya,PDO::PARAM_STR);
+        $user->bindParam(':userName',$username,PDO::PARAM_STR);
         $user->execute();
         return $user;
     }
