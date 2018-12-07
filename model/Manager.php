@@ -31,18 +31,18 @@ class Manager extends Connexion
 	{
 			$id_category = 1;
             $title = "Test";
-			$id_country = $id_country;
-        echo "idcountry " . $id_country;
+
 			$id_user = self::GetUserIdByUserName()->fetch();
+
         $dateTime = date('Y-m-d H-i-s');
-		$sql = 'call RegisterPicture(:path,:dateTimePicture,:id_category,:id_country,:id_user,:title)';
+		$sql = 'call RegisterPicture(:path,:title,:dateTimePicture,:id_category,:id_country,:id_user)';
 		$registerImage = self::getConnexion()->prepare($sql);
         $registerImage->bindParam(':path',$path,PDO::PARAM_STR);
+        $registerImage->bindParam(':title',$title,PDO::PARAM_STR);
 		$registerImage->bindParam(':dateTimePicture',$dateTime,PDO::PARAM_STR);
 		$registerImage->bindParam(':id_category',$id_category,PDO::PARAM_INT);
-		$registerImage->bindParam(':id_country',$id_country,PDO::PARAM_STR);
+		$registerImage->bindParam(':id_country',$id_country,PDO::PARAM_INT);
 		$registerImage->bindParam(':id_user',$id_user['id_user'],PDO::PARAM_INT);
-        $registerImage->bindParam(':title',$title,PDO::PARAM_STR);
 		$registerImage->execute();
 	}
     
@@ -131,7 +131,7 @@ class Manager extends Connexion
         $yaya = "yannJac";
         $sql = 'select id_user from tbl_user where userName = :userName';
         $user = self::getConnexion()->prepare($sql);
-        $user->bindParam(':userName',$_SESSION['username'],PDO::PARAM_STR);
+        $user->bindParam(':userName',$yaya,PDO::PARAM_STR);
         $user->execute();
         return $user;
     }
