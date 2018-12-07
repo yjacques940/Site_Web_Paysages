@@ -39,7 +39,7 @@ ob_start();
                        
                         
                          
-				<button id="add-to-favorites"
+				<button class= "likeDislikeButton"
                class="mdc-icon-button"
                aria-label="Add to favorites"
                aria-hidden="true"
@@ -68,14 +68,12 @@ ob_start();
     </div>
     <script>
         $(document).ready(function(){
+          
                $('#gallery').on('click','.likeDislikeButton',function(){
-                alert(this.value);
+                   alert(this.value);
                 $.ajax({
-                        url: "index.php",
-                        data:{
-                            action: "likeDislikePicture",
-                            id_picture:this.value,
-                        },
+                        url: "index.php?action=LikeDislikePicture&id_picture="+this.value,
+
                         
 
                 });

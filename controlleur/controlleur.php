@@ -90,12 +90,17 @@ function RegisterUser($firstname, $lastname, $username, $password)
 		$validCredentials = true;
 	   }
     }
+
     function LikeDislikePicture($id_picture, $username)
     {
         require 'model/Manager.php';
         $manager = new Manager();
+        echo "do you know da wae";
+        $id_user = $manager->GetUserIdByUserName($username)->fetch();
         if(IsPictureLikeByUser($id_picture,$username)->fetch() == true){
-            
+            LikePicture($id_picture,$id_user);
+        }else{
+            UnlikeAPicture($id_picture,$id_user);
         }
     }
 

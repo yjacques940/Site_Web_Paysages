@@ -75,7 +75,8 @@ require 'controlleur/controlleur.php';
 	}
     if($_GET['action']=="LikeDislikePicture")
     {
-        LikeDislikePicture();    
+        LikeDislikePicture($_GET['id_picture'], $_SESSION['username']);
+        MainPage();
     }
     }
 	else

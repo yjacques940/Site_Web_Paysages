@@ -99,11 +99,11 @@ class Manager extends Connexion
         return $pictures;
     }
     
-    function IsPictureLikeByUser($username, $id_picture){
-        $sql = 'select 1 from tbl_picture_like where id_user in (select id_user from tbl_user where userName = :username) and id_picture = :id_picture';
+    function IsPictureLikeByUser($id_picture, $username){
+        $sql = 'select 1 from tbl_picture_like where id_user in (select id_user from tbl_user where userName = ":username") and id_picture = 1';
         $pictureLiked= self::getconnexion()->query($sql);
-        $pictureLiked->bindParam(':username',$username,$username,PDO::PARAM_STR);
-        $pictureLiked->bindParam(':id_picture',$id_picture,$id_picture,PDO::PARAM_INT);
+        $pictureLiked->bindParam(':username',$username,PDO::PARAM_STR);
+        //$pictureLiked->bindParam(':id_picture',$id_picture,PDO::PARAM_INT);
         $pictureLiked->execute();
         return $pictureLiked;
     }
@@ -154,9 +154,8 @@ class Manager extends Connexion
         return $user;
     }
     
-    function GetUserIdByUserName()
+    function GetUserIdByUserName($username)
     {
-        $yaya = "yannJac";
         $sql = 'select id_user from tbl_user where userName = :userName';
         $user = self::getConnexion()->prepare($sql);
         $user->bindParam(':userName',$yaya,PDO::PARAM_STR);
