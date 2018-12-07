@@ -36,12 +36,12 @@ CREATE TABLE tbl_category(
 #------------------------------------------------------------
 
 CREATE TABLE tbl_country(
-        id_country  Varchar (50) NOT NULL ,
+        id_country  Int Auto_increment NOT NULL ,
         countryName Varchar (50) NOT NULL
 	,CONSTRAINT tbl_country_PK PRIMARY KEY (id_country)
 )ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_bin;
 
-
+        
 #------------------------------------------------------------
 # Table: tbl_pictures
 #------------------------------------------------------------
@@ -52,7 +52,7 @@ CREATE TABLE tbl_pictures(
         picture_title 	varchar(50) NOT NULL,
         dateTimePicture Datetime NOT NULL ,
         id_category     Int NOT NULL ,
-        id_country      Varchar (50) NOT NULL ,
+        id_country      Int NOT NULL ,
         id_user         Int NOT NULL
 	,CONSTRAINT tbl_pictures_PK PRIMARY KEY (id_picture)
 
@@ -75,21 +75,21 @@ CREATE TABLE tbl_picture_like(
 
 	,CONSTRAINT tbl_picture_like_tbl_pictures_FK FOREIGN KEY (id_picture) REFERENCES tbl_pictures(id_picture)
 	,CONSTRAINT tbl_picture_like_tbl_user0_FK FOREIGN KEY (id_user) REFERENCES tbl_user(id_user)
-)ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_bin;;
+)ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_bin;
 
-        
+
 delimiter | 
-create procedure RegisterUser(IN $firstname Varchar(50), IN $lastname Varchar(50), IN $username Varchar(50), IN $password Varchar(50))
+create procedure RegisterUser(IN $firstname varchar(50), IN $lastname Varchar(50), IN $username Varchar(50), IN $password Varchar(50))
 BEGIN
 	INSERT INTO tbl_user(firstName, lastName, userName, password)
     VALUES($firstname,$lastname, $username, $password);
 END
 | 
 delimiter |
-create procedure RegisterPicture(IN $picture varchar(50), IN $dateTimePicture DateTime, IN $id_category int, IN $id_country Varchar(50), IN $id_user int,IN $title varchar(50))
+create procedure RegisterPicture(IN $picture varchar(50),IN $title varchar(50), IN $dateTimePicture DateTime, IN $id_category int, IN $id_country int, IN $id_user int)
 BEGIN
-	INSERT INTO tbl_pictures(picture,dateTimePicture,id_category,id_country,id_user,picture_title)
-	VALUES($picture,$dateTimePicture,$id_category,$id_country,$id_user,$title);
+	INSERT INTO tbl_pictures(picture,picture_title,dateTimePicture,id_category,id_country,id_user)
+	VALUES($picture,$title,$dateTimePicture,$id_category,$id_country,$id_user);
 END
 |
 
@@ -134,42 +134,47 @@ select count(id_picture_like) as likes,id_picture from tbl_picture_like order by
 End
 |
 
-
-insert into tbl_category(id_category,category)
-values(1,"Montagnes");
-insert into tbl_category(id_category,category)
-values(2,"Soleil");
-insert into tbl_category(id_category,category)
-values(3,"Plan d'eau");
-insert into tbl_category(id_category,category)
-values(4,"hiver");
-select * from tbl_category;
-
-
-insert into tbl_country(id_country  ,countryName )
-values(1,"Montréal");
-insert into tbl_country(id_country  ,countryName )
-values(2,"Québec");
-insert into tbl_country(id_country  ,countryName )
-values(3,"Australie");
-insert into tbl_country(id_country  ,countryName )
-values(4,"Saint-Alfred");
-insert into tbl_country(id_country  ,countryName )
-values(5,"Saint-Glinglin-des-Îles-Moutmouths");
-select * from tbl_country;
-
-
 call RegisterUser("Yannick","Jacques","yannJac","1234");
 call RegisterUser("Jessy","Rodrigue","JesRod","1234");
 call RegisterUser("YOh","Orange","YOhOr","1234");
 call RegisterUser("Vincent","TheRock","TheRockVince970","1234");
 call RegisterUser("Marko","Olivier","MarkO","1234");
 call RegisterUser("Sam","Son","Samson","1234");
+
+
 call RegisterNewLike("2018-12-02 14:10:01",1,1);
 call RegisterNewLike("2018-12-02 16:50:01",3,1);
 call RegisterNewLike("2018-12-02 14:10:01",2,3);
 call RegisterNewLike("2018-12-02 14:10:01",4,2);
 call RegisterNewLike("2018-12-02 14:10:01",3,2);
+
+
+insert into tbl_category(category)
+values("Montagnes");
+insert into tbl_category(category)
+values("Soleil");
+insert into tbl_category(category)
+values("Plan d'eau");
+insert into tbl_category(category)
+values("hiver");
+select * from tbl_category;
+
+
+insert into tbl_country(countryName )
+values("Montréal");
+insert into tbl_country(countryName )
+values("Québec");
+insert into tbl_country(countryName )
+values("Australie");
+insert into tbl_country(countryName )
+values("Saint-Alfred");
+insert into tbl_country(countryName )
+values("Saint-Glinglin-des-Îles-Moutmouths");
+select * from tbl_country;
+
+
+
+
 
 
 call CheckIfUsernameExists("yannJac");

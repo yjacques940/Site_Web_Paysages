@@ -71,7 +71,7 @@ function RegisterUser($firstname, $lastname, $username, $password)
 		$path = $addData->CheckImage();
 		$manager = new Manager();
         echo "controller->idcountry->".$id_country;
-		$manager->SavePathInDataBase($path,$id_country);
+		//$manager->SavePathInDataBase($path,$id_country);
         header("Location: index.php?action=AddImage");
 	}
     

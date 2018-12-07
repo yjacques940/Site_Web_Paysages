@@ -13,16 +13,16 @@ ob_start();
 </head>
 	<body>
 		 <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-4-5 form-box"> <!-- pour centrer -->   
-        <form class="pure-form pure-form-aligned" id="mon_formulaire" method="Post" action="index.php?action=AddImageInDatabase" enctype="multipart/form-data">
+        <form class="pure-form pure-form-aligned" id="addImageFormulaire" method="Post" action="index.php?action=AddImageInDatabase" enctype="multipart/form-data">
           <fieldset>
             <h1 for="fichier_source">Choisissez une image</h1> 
            <h3>
               <!--<div class="pure-control-group">
-                    <label for="imageTitle">Titre de l'image :</label>
+                    <label for="imageTitle" required>Titre de l'image :</label>
                     <input name="imageTitle" id="imageTitle" type="text" placeholder="titre">
                 </div>-->
 			Ville de provenance :
-			<select name="country" id="country">
+			<select name="country" id="country" >
 			<?php while($data = $countryList->fetch()) {?>
 			<option  value="<?php $data['id_country']?>"> <?php echo $data['countryName'] ?> </option>
 			<?php };?>

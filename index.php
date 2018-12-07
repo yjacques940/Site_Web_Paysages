@@ -26,7 +26,7 @@ require 'controlleur/controlleur.php';
 	}
 	if($_GET['action'] == "AddImageInDatabase" && isset($_POST['country']))
 	{
-        echo $_POST['country'];
+        echo "id country_INDEX =>" . $_POST['country'];
 		 AddImageInDatabase(htmlentities($_POST['country']));
 	}
 	if($_GET['action'] == "Accueil")
