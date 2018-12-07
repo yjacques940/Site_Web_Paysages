@@ -24,7 +24,7 @@ ob_start();
 			Ville de provenance :
 			<select name="country" id="country" >
 			<?php while($data = $countryList->fetch()) {?>
-			<option  value="<?php $data['id_country']?>"> <?php echo $data['countryName'] ?> </option>
+			<option  value="<?php echo $data['id_country'] ?>"> <?php echo $data['countryName'] ?> </option>
 			<?php };?>
 			</select>
 			</h3>
@@ -32,7 +32,7 @@ ob_start();
 			<h3>Catégorie :
 			<select name="category">
 			<?php while($data = $categoryList->fetch()) {?>
-			<option value="<?php $data['id_category']?>"> <?php echo $data['category'] ?></option>
+			<option value="<?php echo $data['id_category']?>"> <?php echo $data['category'] ?></option>
 			<?php };?>
 			</select>
 			</h3>
