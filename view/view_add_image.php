@@ -12,6 +12,7 @@ ob_start();
     <link rel="stylesheet" href="/css/main.css">
 </head>
 	<body>
+    <?php if(isset($_SESSION['username'])) { ?>
 		 <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-4-5 form-box"> <!-- pour centrer -->   
         <form class="pure-form pure-form-aligned" id="addImageFormulaire" method="Post" action="index.php?action=AddImageInDatabase" enctype="multipart/form-data">
           <fieldset>
@@ -50,7 +51,7 @@ ob_start();
            </fieldset>
         </form>  
     </div>
-
+    <?php } else { echo "<h1>Vous devez être connecté pour ajouter une image</h1>"; } ?>
 	</body>
 
 </html>
