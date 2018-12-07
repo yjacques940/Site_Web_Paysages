@@ -24,12 +24,13 @@ ob_start();
                 $path = $image['picture'];
 				?>
             <div class="photo-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-               
+
                 <?php
 				  echo '<img src="' .$path . '"/>';
 			?>
                    
                     <aside class="photo-box-caption">
+                        <span><b><i> <?php echo $image['picture_title'] ?></b></i></span>
                      <span>
                       by <?php $name =  $manager->GetUserForEachPicture($image['id_picture'])->fetch() ;
                         echo $name['userName'];

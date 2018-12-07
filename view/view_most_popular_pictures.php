@@ -28,6 +28,7 @@ ob_start();
 			?>
                    
                     <aside class="photo-box-caption">
+                        <span><b><i> <?php echo $picturePath['picture_title'] ?></b></i></span>
                      <span>
                       by <?php $name =  $manager->GetUserForEachPicture($image['id_picture'])->fetch() ;
                         echo $name['userName'];
